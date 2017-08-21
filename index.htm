@@ -6,8 +6,10 @@ $(document).ready(function() {
   var dataText = "";
   
  $( window ).load(function() {
+  alert("hahaha");
   $.get("textFile.txt", function(data) {
       dataText = data.split(',');
+     alert(dataText);
   });
   $("#word").value = dataText;
 });
