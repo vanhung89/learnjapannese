@@ -6,17 +6,20 @@ $(document).ready(function() {
   var dataText = "";
   
  $( window ).load(function() {
-  alert("hahaha");
   $.get("textFile.txt", function(data) {
       dataText = data.split(',');
      alert(dataText);
   });
-  $("#word").value = dataText;
+  $("div#word").text(dataText);
+});
+ $("#btnGen").click(function() {
+  $("div#word").text(dataText);
 });
 });
 </script>
 </head>
 <body onload=>
+ Generate radom word: <button id = "btnGen">Generate</button?
   <div id="word"></div>
 </body>
 </html>
