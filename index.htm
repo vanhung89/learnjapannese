@@ -14,12 +14,12 @@ $(document).ready(function() {
  $("#btnGen").click(function() {
   $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
   time = $("input#timeSetting").val();
+  $("div.timer).attr("data-seconds-left",time)
   $('div.timer').startTimer({
   onComplete: function(element){
     element.addClass('is-complete');
   },
-  loop: false,
-  loopInterval: 120
+  loop: false
 });
 });
 });
