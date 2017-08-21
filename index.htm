@@ -13,14 +13,16 @@ $(document).ready(function() {
 });
  $("#btnGen").click(function() {
   $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
-  time = $("input#timeSetting").val();
+  });
+ $("#btnGen").click(function() {
+   time = $("input#timeSetting").val();
   $("div.timer").attr("data-seconds-left",time);
   $('div.timer').startTimer({
   onComplete: function(element){
     element.addClass('is-complete');
   },
   loop: false,
-  allowPause: true,
+  allowPause: true
 });
 });
 });
@@ -56,7 +58,7 @@ $(document).ready(function() {
 <body>
  <h3>Generate radom word:</h3> <button id = "btnGen"><h4>Generate</h4></button>
   <div id="word" style="font-size:75px;"></div>
- <h3>Set timer: </h3><input type = "text" id = "timeSetting" />
+ <h3>Set timer: </h3><input type = "text" id = "timeSetting" /> <button id = "setTime">Set time</button>
   <h3> Time left<h3>
   <div class = "timer" data-seconds-left=0></div>
 </body>
