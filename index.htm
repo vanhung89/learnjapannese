@@ -1,6 +1,7 @@
 <html>
 <head><title>Học tiếng Nhật trực tuyến</title>
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script src="https://rawgithub.com/caike/jQuery-Simple-Timer/master/jquery.simple.timer.js"></script>
  <script>
 $(document).ready(function() {
   var dataText = "";
@@ -13,11 +14,50 @@ $(document).ready(function() {
  $("#btnGen").click(function() {
   $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
 });
+ $("#setTime").click(function() {
+  $('.timer').startTimer({
+  onComplete: function(element){
+    element.addClass('is-complete');
+  },
+  loop: false,
+  loopInterval: $("input#timeSetting").val(),
+});
+});
+
 });
 </script>
+ <style>
+  .timer, .timer-done, .timer-loop {
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  // These are the default CSS classes
+  // used by this plugin. Use these values
+  // for a basic style to get started.
+  .jst-hours {
+    float: left;
+  }
+  .jst-minutes {
+    float: left;
+  }
+  .jst-seconds {
+    float: left;
+  }
+  .jst-clearDiv {
+    clear: both;
+  }
+  .jst-timeout {
+    color: red;
+  }
+</style>
 </head>
 <body>
  <h3>Generate radom word:</h3> <button id = "btnGen"><h4>Generate</h4></button>
   <div id="word" style="font-size:75px;"></div>
+ <h3>Set timer: </h3><input type = "text" id = "timeSetting" /> <button id = "setTime"><h4>Set time</h4></button>
+  <h3> Time left <div class = "timer"></div></h3>
 </body>
 </html>
