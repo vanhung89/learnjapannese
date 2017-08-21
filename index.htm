@@ -11,8 +11,7 @@ $(document).ready(function() {
   });
 });
  $("#btnGen").click(function() {
-  alert(dataText)
-  $("div#word").text(dataText);
+  $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
 });
 });
 </script>
