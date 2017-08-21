@@ -1,7 +1,17 @@
 <html>
-<head><title>Học tiếng Nhật trực tuyến</title></head>
+<head><title>Học tiếng Nhật trực tuyến</title>
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script>
+$(document).ready(function() {
+  var dataText = "";
+  $.get("textFile.txt", function(data) {
+      dataText = data.split(',');
+  });
+  $("#word").value = dataText;
+});
+</script>
+</head>
 <body>
-  Hahahaha
-<?php echo "Hello world"; ?>
+  <div id="word"></div>
 </body>
 </html>
