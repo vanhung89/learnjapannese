@@ -5,7 +5,7 @@
  <script>
 $(document).ready(function() {
   var dataText = "";
-  
+  var time = 0;
  $( window ).load(function() {
   $.get("textFile.txt", function(data) {
       dataText = data.split('\n');
@@ -13,17 +13,15 @@ $(document).ready(function() {
 });
  $("#btnGen").click(function() {
   $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
-});
- $("#setTime").click(function() {
+  time = $("input#timeSetting").val();
   $('.timer').startTimer({
   onComplete: function(element){
     element.addClass('is-complete');
   },
   loop: false,
-  loopInterval: $("input#timeSetting").val(),
+  loopInterval: time,
 });
 });
-
 });
 </script>
  <style>
@@ -57,7 +55,7 @@ $(document).ready(function() {
 <body>
  <h3>Generate radom word:</h3> <button id = "btnGen"><h4>Generate</h4></button>
   <div id="word" style="font-size:75px;"></div>
- <h3>Set timer: </h3><input type = "text" id = "timeSetting" /> <button id = "setTime"><h4>Set time</h4></button>
+ <h3>Set timer: </h3><input type = "text" id = "timeSetting" />
   <h3> Time left <div class = "timer"></div></h3>
 </body>
 </html>
