@@ -7,12 +7,11 @@ $(document).ready(function() {
   
  $( window ).load(function() {
   $.get("textFile.txt", function(data) {
-      dataText = data.split(',');
-     alert(dataText);
+      dataText = data.split('\n');
   });
-  $("div#word").text(dataText);
 });
  $("#btnGen").click(function() {
+  alert(dataText)
   $("div#word").text(dataText);
 });
 });
