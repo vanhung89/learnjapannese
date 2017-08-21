@@ -4,14 +4,17 @@
  <script>
 $(document).ready(function() {
   var dataText = "";
+  
+ $( window ).load(function() {
   $.get("textFile.txt", function(data) {
       dataText = data.split(',');
   });
   $("#word").value = dataText;
 });
+});
 </script>
 </head>
-<body>
+<body onload=>
   <div id="word"></div>
 </body>
 </html>
