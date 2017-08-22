@@ -6,12 +6,21 @@
 $(document).ready(function() {
   var dataText = "";
   var time = 0;
+ var totalWord = 0;
  $( window ).load(function() {
   $.get("textFile.txt", function(data) {
       dataText = data.split('\n');
   });
 });
  $("#btnGen").click(function() {
+  $("#totalWord").text(0);
+  $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
+  });
+ $("#btnNext").click(function() {
+  $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
+  $("#totalWord").text(totalWord);
+  });
+ $("#btnIgnore").click(function() {
   $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
   });
  $("#setTime").click(function() {
@@ -56,10 +65,11 @@ $(document).ready(function() {
 </style>
 </head>
 <body>
- <h3>Generate radom word:</h3> <button id = "btnGen"><h4>Generate</h4></button>
+ <h3>Generate radom word:</h3> <button id = "btnGen"><h4>Start</h4></button> <button id = "btnNexy"><h4>Next</h4></button> <button id = "btnIgnore"><h4>Ignore</h4></button>
   <div id="word" style="font-size:75px;"></div>
  <h3>Set timer: </h3><input type = "text" id = "timeSetting" /> <button id = "setTime">Set time</button>
   <h3> Time left<h3>
   <div class = "timer" data-seconds-left=0></div>
+  <h3>Total word: <span id="totalWord">0</span><h3>
 </body>
 </html>
