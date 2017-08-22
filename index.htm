@@ -18,6 +18,7 @@ $(document).ready(function() {
   });
  $("#btnNext").click(function() {
   $("div#word").text(dataText[Math.floor(Math.random() * dataText.length)]);
+  totalWord +=1;
   $("#totalWord").text(totalWord);
   });
  $("#btnIgnore").click(function() {
